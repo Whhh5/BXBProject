@@ -32,6 +32,7 @@ namespace BXB
                     default:
                         break;
                 }
+                GetComponent<RectTransform>().SetSiblingIndex(transform.parent.childCount - 1);
             }
 
             public override void Destroy()

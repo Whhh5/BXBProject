@@ -64,11 +64,11 @@ public class CharacterController_Rigidbody_2DBox : BaseGameObject_Game
         
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Battle2DManager.Instance.camera_Controller.OffsetToValueX(-5);
+            BattleSceneManager.Instance.camera_Controller.OffsetToValueX(-5);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            Battle2DManager.Instance.camera_Controller.OffsetToValueX(5);
+            BattleSceneManager.Instance.camera_Controller.OffsetToValueX(5);
         }
 
         rigi.AddForce(force * treeX, mode: ForceMode2D.Force);

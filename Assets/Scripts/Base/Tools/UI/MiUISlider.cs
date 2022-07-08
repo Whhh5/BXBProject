@@ -13,7 +13,7 @@ public class MiUISlider : BXB.Core.MiBaseMonoBeHaviourClass
     [SerializeField] RectTransform fillrect;
     [SerializeField] RectTransform degree;
     [SerializeField] Text number;
-    [SerializeField,Range(0,10)] float moveTime;
+    [SerializeField, Range(0,10)] float moveTime;
     [SerializeField, Range(0, 1)] float testSc;
 
     protected override void Initialization()
@@ -34,7 +34,7 @@ public class MiUISlider : BXB.Core.MiBaseMonoBeHaviourClass
         value = value < 0.0f ? 0.0f : value;
         number.text = (value * 100).ToString("#0.00");
         targetGraphic.anchoredPosition3D = new Vector3(main.rect.width * value, 0, 0);
-        fillrect.sizeDelta = new Vector2(-main.rect.width * (1 - value), fillrect.sizeDelta.y);
+        fillrect.sizeDelta = new Vector2(main.rect.width * (value), fillrect.sizeDelta.y);
     }
     /// <summary>
     /// value is 0 to 1

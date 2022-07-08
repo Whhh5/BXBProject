@@ -24,7 +24,7 @@ public class MiEditor : Editor
     {
         EditorApplication.ExecuteMenuItem("Edit/Clear All PlayerPrefs");
         EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(), "",false);
-        EditorSceneManager.OpenScene("Assets/Scenes/Start.unity");
+        EditorSceneManager.OpenScene("Assets/Scenes/Main.unity", OpenSceneMode.Single);
         EditorApplication.ExecuteMenuItem("Edit/Play");
     }
 }

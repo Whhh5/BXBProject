@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Threading.Tasks;
 using TMPro;
@@ -28,7 +29,8 @@ public class RegisterWindow : MiUIDialog
             if (MiDataService.Login(user, pass))
             {
                 await MainSceneManager.Instance.GameStart();
-                await HideAsync();
+                Destroy();
+                ResourceManager.Instance.LoadSceneAsync( ResourceManager.SceneMode.LevelSelect, LoadSceneMode.Additive);
             }
         });
         logOutButton.onClick.SubscribeEventAsync(async () =>

@@ -55,7 +55,7 @@ public partial class MainHandle : MiUIDialog
     //Temp Parameter
     [SerializeField, ReadOnly] CommonArrowBase weapons = null;
     [SerializeField, ReadOnly] bool isCloseButton = false;
-    public new Battle2DManager manager => Battle2DManager.Instance;
+    public new BattleSceneManager manager => BattleSceneManager.Instance;
     public override void Prepare()
     {
         dic_SlotId_SkillId = new Dictionary<uint, ulong>()

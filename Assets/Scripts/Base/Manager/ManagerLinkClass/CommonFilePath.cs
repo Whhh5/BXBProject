@@ -17,6 +17,7 @@ public class CommonFilePath : MiBaseClass
 
     public readonly static string PreUIPath = "Prefab/UI";
     public readonly string PreUIDialogPath = $"{PreUIPath}{dirChar}Dialog";
+    public readonly string PreUIDialogSystemPath = $"{PreUIPath}{dirChar}Dialog/System";
     public readonly string PreUIElementPath = $"{PreUIPath}{dirChar}UIElement";
 
 

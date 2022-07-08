@@ -52,18 +52,38 @@ namespace BXB
                 return obj;
             }
 
-            public async Task<AsyncOperation> LoadSceneAsync(string name, LoadSceneMode mode)
+            public enum SceneMode
             {
-                await AsyncDefaule();
+                UI,
+                LevelSelect,
+                Battle
+
+            }
+            public AsyncOperation LoadSceneAsync(SceneMode sceneMode, LoadSceneMode mode)
+            {
                 //SceneManager.UnloadSceneAsync(name, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
-                var operation = SceneManager.LoadSceneAsync(name, mode);
+                var operation = SceneManager.LoadSceneAsync(sceneMode.ToString(), mode);
+                var loadingPath = CommonManager.Instance.filePath.PreUIDialogSystemPath;
+                try
+                {
+                    ResourceManager.Instance.ShowDialogAsync<Dialog_LoadingScene>(loadingPath, "Dialog_LoadingScene", CanvasLayer.System, operation).Wait();
+                }
+                catch (System.Exception exp)
+                {
+                    Log(Color.red, exp.ToString());
+                }
+                return operation;
+            }
+            public AsyncOperation RemoveSceneAsync(SceneMode sceneMode, UnloadSceneOptions mode)
+            {
+                var operation = SceneManager.UnloadSceneAsync(sceneMode.ToString(), mode);
                 return operation;
             }
 
 
 
 
-            Dictionary<string, MiUIDialog> dialogs = new Dictionary<string, MiUIDialog>();
+            public Dictionary<string, MiUIDialog> dialogs = new Dictionary<string, MiUIDialog>();
             Dictionary<string, GameObject> objs = new Dictionary<string, GameObject>();
 
             public T1 GetWorldObject<T1>(string f_path, string f_name, Vector3 f_startPosition, params object[] f_status)

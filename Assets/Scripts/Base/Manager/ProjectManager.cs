@@ -7,15 +7,16 @@ using UnityEditor;
 
 public class ProjectManager : MiSingleton<ProjectManager>
 {
+    static string assResSetting = "Assets/Resources/SettingAsset/";
     public enum AssetTypes
     {
         SystemStringAsset,
-
+        ComputerSettingAsset,
     }
     Dictionary<AssetTypes, string> assetPath = new Dictionary<AssetTypes, string>
     {
-        { AssetTypes.SystemStringAsset, "Assets/Resources/SettingAsset/"},
-
+        {AssetTypes.SystemStringAsset, $"{assResSetting}"},
+        {AssetTypes.ComputerSettingAsset, $"{assResSetting}"},
     };
     public bool TryGetSettingAssets<T>(AssetTypes type, out T asset) where T : ScriptableObject
     {
@@ -28,6 +29,12 @@ public class ProjectManager : MiSingleton<ProjectManager>
         }
         catch (Exception exp)
         {
+#if PC_GAME
+
+#elif MOBILE_GAME
+
+#endif
+
 
         }
         return isGet;

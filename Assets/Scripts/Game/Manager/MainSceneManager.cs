@@ -23,8 +23,10 @@ public class MainSceneManager : MiSingletonMonoBeHaviour<MainSceneManager>
         };
         foreach (var item in jsonData)
         {
-            var data = (JsonData)item;
-            Log(Color.green, data.ToJson(), item, data);
+            //var data = (JsonData)item;
+            //Log(Color.green, data.ToJson(), item, data);
+
+            //Log(Color.green, item);
         }
     }
 

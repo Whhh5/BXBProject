@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BXB.Core;
 using System.Threading.Tasks;
-using UnityEngine.Rendering.Universal;
+//using UnityEngine.Rendering.Universal;
 
 public class UISceneManager : MiSingletonMonoBeHaviour<UISceneManager>
 {
@@ -21,12 +21,12 @@ public class UISceneManager : MiSingletonMonoBeHaviour<UISceneManager>
         MiAsyncManager.Instance.StartAsync(async () => await LoadCanvasLayer());
         mainCamera = GameObject.FindGameObjectWithTag("Overlay Camera").GetComponent<Camera>();
 
-        MainSceneManager.Instance.mainCamera.GetUniversalAdditionalCameraData().cameraStack.Add(mainCamera);
+        //MainSceneManager.Instance.mainCamera.GetUniversalAdditionalCameraData().cameraStack.Add(mainCamera);
     }
     protected override async Task InitializationAsync()
     {
         var path = CommonManager.Instance.filePath.PreUIDialogPath;
-        await TableManager.Instance.tableData.ShowUIDialog<LocalizeUIDialogData, MiUIDialog>(path, 10104040005, CanvasLayer.System);
+        await ResourceManager.Instance.ShowDialogAsync<MiUIDialog>(path, "RegisterWindow", CanvasLayer.System);
     }
     public async Task LoadCanvasLayer()
     {

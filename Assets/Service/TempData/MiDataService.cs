@@ -42,7 +42,7 @@ public class MiDataService
             {
                 active = true;
                 accountNumber = data.value.userName;
-                Debug.Log("Play Game ! Welcome To Co Game");
+                Debug.Log("Play Game");
             }
             else
             {

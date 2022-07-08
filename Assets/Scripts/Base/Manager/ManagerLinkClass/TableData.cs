@@ -80,7 +80,6 @@ public class TableData : MiBaseClass
         }
         return result;
     }
-
     public async Task<T1> ShowUIDialog<TTable, T1>(string path, ulong id, CanvasLayer layerGroup, params object[] parameters)
         where TTable : class where T1 : MiUIDialog
     {
@@ -139,6 +138,7 @@ public class TableData : MiBaseClass
         }
         return result;
     }
+
     public void GetOriginal<TTable>(string path, ulong id, out GameObject original)
         where TTable : class
     {
@@ -179,4 +179,11 @@ public class TableData : MiBaseClass
                 Log(Color.red, $" Absent   Prefab   Path   {path}/{prefabName}");
         }
     }
+
+
+
+
+
+
+
 }

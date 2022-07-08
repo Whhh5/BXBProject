@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BXB.Core;
 
-[CreateAssetMenu(fileName = "new System String Asset", menuName = "System/System String Asset")]
+[CreateAssetMenu(fileName = "new System String Asset", menuName = "System/SystemStringAsset")]
 public class SystemStringAsset : ScriptableObject
 {
     [SerializeField, ReadOnly] private string _unityLocalPath;

@@ -10,7 +10,7 @@ public abstract class CommonArrowBase : MiObjPoolPublicParameter, ICommon_Weapon
     {
         return main;
     }
-    public abstract void Prepare();
+    public abstract void OnInit();
     public abstract void Active(params object[] value);
 
     public virtual object Clone()
@@ -22,7 +22,7 @@ public abstract class CommonArrowBase : MiObjPoolPublicParameter, ICommon_Weapon
         return gameObject;
     }
 
-    public abstract void SetParameter(params object[] value);
+    public abstract void OnSetInit(params object[] value);
     public override void Destroy()
     {
         float delayDesTime = 0;

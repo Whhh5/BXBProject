@@ -15,7 +15,7 @@ namespace BXB
                 string str = "";
                 foreach (var para in parameter)
                 {
-                    str += (string)para;
+                    str += para.ToString() + " - ";
                 }
                 var col = ColorUtility.ToHtmlStringRGBA(color);
                 Debug.Log($"{string.Format("<color=#FFFF00FF>{0}</color>", GetType())}:  {string.Format("<color=#{0}>{1}</color>", col, str)}");
@@ -34,34 +34,34 @@ namespace BXB
             protected MiTPool<GameObject> ObjPool => MiPool.Instance.PoolObj;
             protected virtual void Awake()
             {
-                InitalizationInteriorParameterAsync().Wait();
-                InitalizationInteriorParameter();
+                OnAwakeAsync().Wait();
+                OnAwake();
             }
             protected virtual void Start()
             {
                 //MiAsync.MiAsyncManager.Instance.StartAsync(InitializationAsync);
-                InitializationAsync().Wait();
-                Initialization();
+                OnStartAsync().Wait();
+                OnStart();
             }
             #region Async Initialization
-            protected virtual async Task InitalizationInteriorParameterAsync()
+            protected virtual async Task OnAwakeAsync()
             {
                 await MiAsyncManager.Instance.Default();
             }
-            protected virtual async Task InitializationAsync()
+            protected virtual async Task OnStartAsync()
             {
                 await MiAsyncManager.Instance.Default();
             }
             #endregion
             #region Initialization
-            protected virtual void InitalizationInteriorParameter()
+            protected virtual void OnAwake()
             {
                 
             }
-            protected virtual void Initialization()
+            protected virtual void OnStart()
             {
             }
-            protected virtual void Initialization<T0>(T0 t0)
+            protected virtual void OnStart<T0>(T0 t0)
             {
             }
             protected void Log(Color color, params object[] parameter)
@@ -69,7 +69,7 @@ namespace BXB
                 string str = "";
                 foreach (var para in parameter)
                 {
-                    str += (string)para;
+                    str += para.ToString() + " - ";
                 }
                 var col = ColorUtility.ToHtmlStringRGBA(color);
                 var data = $"{string.Format("<color=#FFFF00FF>{0}</color>", GetType())}:  {string.Format("<color=#{0}>{1}</color>", col, str)}";

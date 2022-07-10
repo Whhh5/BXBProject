@@ -28,10 +28,10 @@ public class MiDataProcessing : MiBaseClass
                 break;
         }
         CharacterBloodEvent.Invoke(obj);
-        var path = CommonManager.Instance.filePath.PreComEffectsPath;
         return;
-        var setBoolDialog = TableManager.Instance.tableData.GetWorldObject<LocalizeSkillsData, CommonAnimationHint>(
-            f_path: path, f_id: 10202040002, point, value.ToString(), color);
-        setBoolDialog.Active();
+        var path = CommonManager.Instance.filePath.PreComEffectsPath;
+        //var setBoolDialog = TableManager.Instance.tableData.GetWorldObject<LocalizeSkillsData, CommonAnimationHint>(
+        //    f_path: path, f_id: 10202040002, point, value.ToString(), color);
+        //setBoolDialog.Active();
     }
 }

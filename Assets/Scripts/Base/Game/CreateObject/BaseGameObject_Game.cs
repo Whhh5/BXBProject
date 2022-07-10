@@ -27,9 +27,9 @@ public abstract class BaseGameObject_Game : MiObjPoolPublicParameter, ICommon_Ob
         }
     }
     [SerializeField, ReadOnly] protected float bloodProportion;
-    protected override void InitalizationInteriorParameter()
+    protected override void OnAwake()
     {
-        base.InitalizationInteriorParameter();
+        base.OnAwake();
         setBloodClick += (objInfo) =>
         {
             if (objInfo.proportionBlood <= 0)
@@ -41,9 +41,9 @@ public abstract class BaseGameObject_Game : MiObjPoolPublicParameter, ICommon_Ob
         objInfo.lastBlood = blood;
         SetBlood(bloodMax);
     }
-    protected override void Initialization()
+    protected override void OnStart()
     {
-        base.Initialization();
+        base.OnStart();
     }
     public ObjectType GetObjectType()
     {
@@ -58,8 +58,8 @@ public abstract class BaseGameObject_Game : MiObjPoolPublicParameter, ICommon_Ob
     {
         return objInfo;
     }
-    public abstract void Prepare();
-    public abstract void SetParameter(params object[] value);
+    public abstract void OnInit();
+    public abstract void OnSetInit(params object[] value);
     public void AddBloodValue(float value)
     {
         blood += value;

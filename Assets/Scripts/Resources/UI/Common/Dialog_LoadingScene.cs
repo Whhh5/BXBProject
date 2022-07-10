@@ -8,9 +8,9 @@ public class Dialog_LoadingScene : MiUIDialog
     [SerializeField] MiUIButton nextBtn;
     [SerializeField] MiUIText loadingHint;
 
-    protected override void Initialization()
+    protected override void OnStart()
     {
-        base.Initialization();
+        base.OnStart();
     }
     //public async Task SetUpShow(AsyncOperation opera)
     //{
@@ -42,12 +42,12 @@ public class Dialog_LoadingScene : MiUIDialog
 
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         loadingHint.SetRawText("Loading......").Wait();
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
         AsyncOperation opera = (AsyncOperation)value[0];
         ShowAsync(DialogMode.none).Wait();

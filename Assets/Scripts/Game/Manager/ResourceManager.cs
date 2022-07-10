@@ -10,6 +10,16 @@ namespace BXB
     {
         public class ResourceManager : MiSingleton<ResourceManager>
         {
+            /// <summary>
+            /// 不要使用这个方法！！！
+            /// </summary>
+            /// <typeparam name="T"></typeparam>
+            /// <param name="filePath"></param>
+            /// <param name="name"></param>
+            /// <param name="isInstantiate"></param>
+            /// <param name="rectTr"></param>
+            /// <param name="trTr"></param>
+            /// <returns></returns>
             public async Task<T> LoadAsync<T>(string filePath, string name,bool isInstantiate = false,RectTransform rectTr = null,Transform trTr = null) 
                 where T : UnityEngine.Object
             {
@@ -23,6 +33,15 @@ namespace BXB
                 }
                 return obj;
             }
+
+            /// <summary>
+            /// 不要使用这个方法！！！
+            /// </summary>
+            /// <typeparam name="T"></typeparam>
+            /// <param name="filePath"></param>
+            /// <param name="name"></param>
+            /// <param name="layer"></param>
+            /// <returns></returns>
             public async Task<T> loadUIElementAsync<T>(string filePath,string name, CanvasLayer layer) where T : UnityEngine.Object
             {
                 var parent = await UISceneManager.Instance.GetCanvasRectAsync(layer);
@@ -31,7 +50,16 @@ namespace BXB
             }
 
 
-
+            /// <summary>
+            /// 不要使用这个方法！！！
+            /// </summary>
+            /// <typeparam name="T"></typeparam>
+            /// <param name="filePath"></param>
+            /// <param name="name"></param>
+            /// <param name="isInstantiate"></param>
+            /// <param name="rectTr"></param>
+            /// <param name="trTr"></param>
+            /// <returns></returns>
             public T Load<T>(string filePath, string name, bool isInstantiate = false, RectTransform rectTr = null, Transform trTr = null) where T : UnityEngine.Object
             {
                 string paths = $"{filePath}/{name}";
@@ -44,6 +72,14 @@ namespace BXB
                 return obj;
             }
 
+            /// <summary>
+            /// 不要使用这个方法！！！
+            /// </summary>
+            /// <typeparam name="T"></typeparam>
+            /// <param name="filePath"></param>
+            /// <param name="name"></param>
+            /// <param name="layer"></param>
+            /// <returns></returns>
             public T loadUIElement<T>(string filePath, string name, CanvasLayer layer) where T : Object
             {
                 var parent = UISceneManager.Instance.GetCanvasRect(layer);
@@ -86,13 +122,15 @@ namespace BXB
             public Dictionary<string, MiUIDialog> dialogs = new Dictionary<string, MiUIDialog>();
             Dictionary<string, GameObject> objs = new Dictionary<string, GameObject>();
 
-            public T1 GetWorldObject<T1>(string f_path, string f_name, Vector3 f_startPosition, params object[] f_status)
+            public T1 GetWorldObject<T1>(string f_path, string f_name, Vector3 f_startPosition, Transform f_parent, ulong f_id = 0, params object[] f_Parameter)
             where T1 : MiObjPoolPublicParameter, ICommon_GameObject
             {
                 var path = f_path;
                 var prefab = f_name;
                 var startPosition = f_startPosition;
-                var status = f_status;
+                var status = f_Parameter;
+                var parent = f_parent;
+                var id = f_id;
 
                 GetOriginal(path, prefab, out GameObject original);
                 if (original == null)
@@ -102,16 +140,16 @@ namespace BXB
                 }
 
                 var obj = ObjPool.GetObject(original);
-                obj.transform.Normalization(null);
-                obj.transform.position = startPosition;
+                obj.transform.Normalization(parent);
+                obj.transform.localPosition = startPosition;
                 T1 result = obj.GetComponent<T1>();
                 if (result != null)
                 {
                     obj.SetActive(true);
                     result.GetMain().transform.Normalization(obj.transform);
-                    result.SettingId(0);
-                    result.Prepare();
-                    result.SetParameter(status);
+                    result.SettingId(id);
+                    result.OnInit();
+                    result.OnSetInit(status);
                 }
                 return result;
             }
@@ -134,8 +172,8 @@ namespace BXB
                     dialogs[name] = dialog;
                 }
                 obj = (T)dialogs[name];
-                obj.Prepare();
-                obj.SetParameter(parameters);
+                obj.OnInit();
+                obj.OnSetInit(parameters);
                 return obj;
             }
 
@@ -165,8 +203,8 @@ namespace BXB
                     obj.SetActive(true);
                     result.GetMain().GetComponent<RectTransform>().Normalization(rect);
                     result.SettingId(0);
-                    result.Prepare();
-                    result.SetParameter(parameter);
+                    result.OnInit();
+                    result.OnSetInit(parameter);
                 }
                 return result;
             }

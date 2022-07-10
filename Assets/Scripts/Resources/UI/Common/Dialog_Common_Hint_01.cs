@@ -9,7 +9,7 @@ public class Dialog_Common_Hint_01 : MiUIDialog
     [SerializeField] CanvasGroup group;
     [Tooltip("Show Time - Stay Time - Hide Time"),SerializeField] Vector3 time;
 
-    public override void Prepare()
+    public override void OnInit()
     {
         throw new System.NotImplementedException();
     }
@@ -34,7 +34,7 @@ public class Dialog_Common_Hint_01 : MiUIDialog
 
        
     }
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
 
     }

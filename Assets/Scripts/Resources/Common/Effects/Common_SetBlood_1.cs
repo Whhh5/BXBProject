@@ -15,13 +15,13 @@ public class Common_SetBlood_1 : CommonAnimationHint
         });
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         gameObject.SetActive(false);
         horizontalList.Clear();
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
         GameObject obj;
         SpriteRenderer sprite;

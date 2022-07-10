@@ -9,9 +9,9 @@ public abstract class CommonAnimationHint : MiObjPoolPublicParameter, ICommonAni
     [SerializeField] protected GameObject main;
     [SerializeField] protected Animation anima;
     [SerializeField] protected List<GameObject> hideObj;
-    protected override void InitalizationInteriorParameter()
+    protected override void OnAwake()
     {
-        base.InitalizationInteriorParameter();
+        base.OnAwake();
         foreach (var para in hideObj)
         {
             para.SetActive(false);
@@ -41,9 +41,9 @@ public abstract class CommonAnimationHint : MiObjPoolPublicParameter, ICommonAni
         return main;
     }
 
-    public abstract void Prepare();
+    public abstract void OnInit();
 
-    public abstract void SetParameter(object[] value);
+    public abstract void OnSetInit(object[] value);
 
     public object Clone()
     {

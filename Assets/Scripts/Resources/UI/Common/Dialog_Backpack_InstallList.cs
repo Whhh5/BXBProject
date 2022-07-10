@@ -7,12 +7,12 @@ using BXB.Core;
 
 public class Dialog_Backpack_InstallList : MiUIDialog
 {
-    public override void Prepare()
+    public override void OnInit()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
         throw new System.NotImplementedException();
     }

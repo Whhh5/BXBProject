@@ -11,9 +11,9 @@ namespace BXB
                 SerializeField]
             MiUIButton close;
             protected UISceneManager manager => UISceneManager.Instance;
-            protected override async Task InitalizationInteriorParameterAsync()
+            protected override async Task OnAwakeAsync()
             {
-                await base.InitalizationInteriorParameterAsync();
+                await base.OnAwakeAsync();
                 if (close != null)
                 {
                     close.onClick.SubscribeEventAsync(async () => { await HideAsync(); await MiAsyncManager.Instance.Default(); }).SubscribeGC(1);

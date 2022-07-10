@@ -56,7 +56,7 @@ public partial class MainHandle : MiUIDialog
     [SerializeField, ReadOnly] CommonArrowBase weapons = null;
     [SerializeField, ReadOnly] bool isCloseButton = false;
     public new BattleSceneManager manager => BattleSceneManager.Instance;
-    public override void Prepare()
+    public override void OnInit()
     {
         dic_SlotId_SkillId = new Dictionary<uint, ulong>()
         {
@@ -114,7 +114,7 @@ public partial class MainHandle : MiUIDialog
         }
         gameObject.SetActive(true);
     }
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
     }
     public override async Task SetParameter<T>(params object[] value)

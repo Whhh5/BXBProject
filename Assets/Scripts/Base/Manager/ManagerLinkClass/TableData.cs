@@ -75,8 +75,8 @@ public class TableData : MiBaseClass
             obj.SetActive(true);
             result.GetMain().transform.Normalization(obj.transform);
             result.SettingId(id);
-            result.Prepare();
-            result.SetParameter(status);
+            result.OnInit();
+            result.OnSetInit(status);
         }
         return result;
     }
@@ -86,22 +86,22 @@ public class TableData : MiBaseClass
         T1 obj;
         if (!uiDialogs.ContainsKey(id))
         {
-            var prefabName = DataManager.Master.GetTableData<LocalizeUIDialogData>(id).prefabName;
-            var o = await ResourceManager.Instance.loadUIElementAsync<GameObject>(path, prefabName, layerGroup);
-            var dialog = o.GetComponent<MiUIDialog>();
-            uiDialogs.Add(id, dialog);
+            //var prefabName = DataManager.Master.GetTableData<LocalizeUIDialogData>(id).prefabName;
+            //var o = await ResourceManager.Instance.loadUIElementAsync<GameObject>(path, prefabName, layerGroup);
+            //var dialog = o.GetComponent<MiUIDialog>();
+            //uiDialogs.Add(id, dialog);
         }
         else if (uiDialogs[id] == null)
         {
-            var prefabName = DataManager.Master.GetTableData<LocalizeUIDialogData>(id).prefabName;
-            var o = await ResourceManager.Instance.loadUIElementAsync<GameObject>(path, prefabName, layerGroup);
-            var dialog = o.GetComponent<MiUIDialog>();
-            uiDialogs[id] = dialog;
+            //var prefabName = DataManager.Master.GetTableData<LocalizeUIDialogData>(id).prefabName;
+            //var o = await ResourceManager.Instance.loadUIElementAsync<GameObject>(path, prefabName, layerGroup);
+            //var dialog = o.GetComponent<MiUIDialog>();
+            //uiDialogs[id] = dialog;
         }
         obj = (T1)uiDialogs[id];
         obj.SettingId(id);
-        obj.Prepare();
-        obj.SetParameter(parameters);
+        obj.OnInit();
+        obj.OnSetInit(parameters);
         await obj.SetParameter<TTable>(parameters);
         return obj;
     }
@@ -132,8 +132,8 @@ public class TableData : MiBaseClass
             obj.SetActive(true);
             result.GetMain().GetComponent<RectTransform>().Normalization(rect);
             result.SettingId(id);
-            result.Prepare();
-            result.SetParameter(parameter);
+            result.OnInit();
+            result.OnSetInit(parameter);
             await result.SetParameter<TTable>(parameter);
         }
         return result;

@@ -30,16 +30,16 @@ namespace BXB
             Image buttonColor => GetComponent<Image>();
 
             public delegate void eventVoid<T>(T value);
-            protected override void InitalizationInteriorParameter()
+            protected override void OnAwake()
             {
-                base.InitalizationInteriorParameter();
+                base.OnAwake();
                 initEvents.SubscribeEventAsync(InitClick).SubscribeGC(-1);
                 initEvents.Invoke();
                 onLongDownBoolFunc = () => (buttonStatus & ButtonStstus.Down) != 0;
             }
-            protected override async Task InitializationAsync()
+            protected override async Task OnStartAsync()
             {
-                await base.InitializationAsync();
+                await base.OnStartAsync();
             }
 
             async Task InitClick()

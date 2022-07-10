@@ -11,9 +11,9 @@ public class RegisterWindow : MiUIDialog
     [SerializeField] MiUIButton logOutButton;
     [SerializeField] TMP_InputField userName;
     [SerializeField] TMP_InputField password;
-    protected override async Task InitalizationInteriorParameterAsync()
+    protected override async Task OnAwakeAsync()
     {
-        await base.InitalizationInteriorParameterAsync();
+        await base.OnAwakeAsync();
         refisterButton.onClick.SubscribeEventAsync(async () =>
         {
             await AsyncDefaule();
@@ -25,7 +25,7 @@ public class RegisterWindow : MiUIDialog
         {
             var user = userName.text;
             var pass = password.text;
-            await Server.Instance.LinkServer();
+            //await Server.Instance.LinkServer();
             if (MiDataService.Login(user, pass))
             {
                 await MainSceneManager.Instance.GameStart();
@@ -41,11 +41,11 @@ public class RegisterWindow : MiUIDialog
             MiDataService.LogOut(user, pass);
         });
     }
-    public override void Prepare()
+    public override void OnInit()
     {
         gameObject.SetActive(true);
     }
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
         
     }

@@ -21,18 +21,18 @@ public class UICommon_ArticleFrame : UIElementPoolBase
     }
     public async Task SetUp(GameObject original, ulong id,ulong count = 1, bool isRaycast = true)
     {
-        icon.sprite = await ResourceManager.Instance.LoadAsync<Sprite>("Sprite/Icon", id.ToString());
-        await countText.SetRawText(count.ToString());
-        mainGroup.blocksRaycasts = isRaycast;
+        //icon.sprite = await ResourceManager.Instance.LoadAsync<Sprite>("Sprite/Icon", id.ToString());
+        //await countText.SetRawText(count.ToString());
+        //mainGroup.blocksRaycasts = isRaycast;
         await AsyncDefaule();
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
 
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
 
     }

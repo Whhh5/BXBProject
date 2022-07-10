@@ -16,13 +16,13 @@ public class Common_Horizontal_Word : MiBaseMonoBeHaviourClass
     [SerializeField] Mode mode;
     [SerializeField] List<Transform> targets = new List<Transform>();
     [SerializeField] Vector2 interval_MoveTime;
-    protected override void Initialization()
+    protected override void OnStart()
     {
-        base.Initialization();
+        base.OnStart();
     }
-    protected override void InitalizationInteriorParameter()
+    protected override void OnAwake()
     {
-        base.InitalizationInteriorParameter();
+        base.OnAwake();
         Clear();
     }
     void UpdateGroup()

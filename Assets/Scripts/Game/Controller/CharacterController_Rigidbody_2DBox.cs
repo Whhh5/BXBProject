@@ -15,11 +15,11 @@ public class CharacterController_Rigidbody_2DBox : BaseGameObject_Game
     {
         return controllerInfo;
     }
-    public override void Prepare()
+    public override void OnInit()
     {
 
     }
-    public override void SetParameter(params object[] value)
+    public override void OnSetInit(params object[] value)
     {
 
     }

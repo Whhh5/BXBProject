@@ -23,14 +23,14 @@ public class Common_Line_2 : CommonEffectsBase
 
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         mainLine.positionCount = 2;
         startTarget = null;
         endTarget = null;
     }
 
-    public override void SetParameter(params object[] value)
+    public override void OnSetInit(params object[] value)
     {
         startTarget = value[0] as Transform;
         endTarget = value[1] as Transform;

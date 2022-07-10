@@ -11,12 +11,12 @@ public class Common_Article_3 : UIElementPoolBase
     [SerializeField] Image p_icon;
     [SerializeField] MiUIText p_text;
 
-    public override void Prepare()
+    public override void OnInit()
     {
 
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
 
     }

@@ -27,14 +27,14 @@ public class Eff_SelectTarget_1 : CommonEffectsBase
         DOTween.To(() => 2, value => { }, 0, durationTime).OnComplete(() => { Destroy();});
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         target = null;
         durationTime = 3.0f;
         gameObject.SetActive(false);
     }
 
-    public override void SetParameter(params object[] value)
+    public override void OnSetInit(params object[] value)
     {
         this.durationTime = (float)value[0];
         target = value[1] as Transform;

@@ -13,9 +13,9 @@ public class Dialog_Common_Hint_02 : MiUIDialog
     [SerializeField] bool isEnabled = true;
     [SerializeField] Vector2 showAndHideTime;
     #region Old
-    protected override async Task InitializationAsync()
+    protected override async Task OnStartAsync()
     {
-        await base.InitializationAsync();
+        await base.OnStartAsync();
 
         mainGroup.alpha = 0;
     }
@@ -83,12 +83,12 @@ public class Dialog_Common_Hint_02 : MiUIDialog
         await AsyncDefaule();
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
     }
 
@@ -119,7 +119,7 @@ public class Dialog_Common_Hint_02 : MiUIDialog
             Sprite icon = null;
             //10104020003
             var path = CommonManager.Instance.filePath.PreUIElementPath;
-            var cs = await TableManager.Instance.tableData.GetUIElement<LocalizeUIDialogData, UIElementPoolBase>(path, 10104020003, listParent, Vector3.zero, icon, text);
+            //var cs = await TableManager.Instance.tableData.GetUIElement<LocalizeUIDialogData, UIElementPoolBase>(path, 10104020003, listParent, Vector3.zero, icon, text);
 
             //
             //var obj = await ObjPool.GetObjectAsync(article);
@@ -129,7 +129,7 @@ public class Dialog_Common_Hint_02 : MiUIDialog
             //rect.Normalization(listParent);
             //obj.SetActive(true);
             //
-            articles.Add(cs);
+            //articles.Add(cs);
         }
         await ShowAsync();
         await PlayTween(1, async () => { await AsyncDefaule(); }, async () => { await AsyncDefaule(); });

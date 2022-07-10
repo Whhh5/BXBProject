@@ -25,4 +25,6 @@ public class CommonFilePath : MiBaseClass
     public readonly string ResLocalDataPath = "Assets/Resources/DataAssets/Localize";
     public readonly string ResRolesPrePath = "Prefab/Roles";
     public readonly string ResArt = "Art";
+
+    public readonly string ResArticle = "Prefab/Articles";
 }

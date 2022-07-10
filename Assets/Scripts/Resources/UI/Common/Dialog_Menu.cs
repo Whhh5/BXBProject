@@ -10,9 +10,9 @@ public class Dialog_Menu : MiUIDialog
     [SerializeField] MiUIButton add;
     [SerializeField] MiUIButton remove;
 
-    protected override async Task InitializationAsync()
+    protected override async Task OnStartAsync()
     {
-        await base.InitializationAsync();
+        await base.OnStartAsync();
     }
     public async Task SetUpShowAsync()
     {
@@ -36,12 +36,12 @@ public class Dialog_Menu : MiUIDialog
         });
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
         
     }

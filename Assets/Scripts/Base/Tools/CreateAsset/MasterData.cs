@@ -9,7 +9,12 @@ using BXB.Core;
 public partial class MasterData
 {
 	public static MasterData Instance = new MasterData();
-
+	/// <summary>
+	/// T is table type
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="key"></param>
+	/// <returns></returns>
 	public T GetTableData<T>(ulong key) where T:class
 	{
 		var table = typeof(T).Name;

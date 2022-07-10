@@ -44,6 +44,10 @@ namespace BXB
             public void SetState(uint state);
         }
 
+        public interface IWordGameObject : ICommon_GameObject
+        {
+
+        }
 
         public interface IWeapon
         {
@@ -60,8 +64,8 @@ namespace BXB
         public interface ICommon_GameObject : ICloneable
         {
             public GameObject GetMain();
-            public void Prepare();
-            public void SetParameter(object[] value);
+            public void OnInit();
+            public void OnSetInit(object[] value);
             public void Destroy();
         }
         public interface ICommon_Weapon : ICommon_GameObject

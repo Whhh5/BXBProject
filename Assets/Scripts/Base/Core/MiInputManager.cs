@@ -17,9 +17,9 @@ namespace BXB
 
             Dictionary<MiKeyCode, Action> keyCodeDictionary = new Dictionary<MiKeyCode, Action>();
 
-            protected override void InitalizationInteriorParameter()
+            protected override void OnAwake()
             {
-                base.InitalizationInteriorParameter();
+                base.OnAwake();
 
             }
 

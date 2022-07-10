@@ -22,13 +22,13 @@ public class Eff_Common_MotionTrail_1 : CommonEffectsBase
         }
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         isDestroy = false;
         target = null;
     }
 
-    public override void SetParameter(params object[] value)
+    public override void OnSetInit(params object[] value)
     {
         target = value[0] as Transform;
     }

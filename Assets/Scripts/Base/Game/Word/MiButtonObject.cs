@@ -21,7 +21,7 @@ namespace BXB
 
             [SerializeField, ReadOnly] bool isExecute = true;
             [SerializeField, ReadOnly] Color perproColor = new Color();
-            [SerializeField] Material buttonColor => GetComponent<MeshRenderer>().materials[0];
+            //[SerializeField] Material buttonColor => GetComponent<MeshRenderer>().materials[0];
             [SerializeField] Material spriteRenderer => GetComponent<SpriteRenderer>().material;
             protected virtual void OnMouseEnter()
             {
@@ -91,12 +91,13 @@ namespace BXB
             {
                 if (color != default)
                 {
-                    if (buttonColor != null)
-                    {
-                        buttonColor.color = color;
-                        return buttonColor.color;
-                    }
-                    else if(spriteRenderer != null)
+                    //if (buttonColor != null)
+                    //{
+                    //    buttonColor.color = color;
+                    //    return buttonColor.color;
+                    //}
+                    //else 
+                    if(spriteRenderer != null)
                     {
                         spriteRenderer.color = color;
                         return spriteRenderer.color;
@@ -104,11 +105,12 @@ namespace BXB
                 }
                 else
                 {
-                    if (buttonColor != null)
-                    {
-                        return buttonColor.color;
-                    }
-                    else if (spriteRenderer != null)
+                    //if (buttonColor != null)
+                    //{
+                    //    return buttonColor.color;
+                    //}
+                    //else 
+                    if (spriteRenderer != null)
                     {
                         return spriteRenderer.color;
                     }

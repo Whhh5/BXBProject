@@ -15,9 +15,9 @@ public abstract class MiUIBase : MiObjPoolPublicParameter, IUIDialog
     [SerializeField] AnimationClip showClip;
     [SerializeField] AnimationClip hideClip;
 
-    protected override async Task InitalizationInteriorParameterAsync()
+    protected override async Task OnAwakeAsync()
     {
-        await base.InitalizationInteriorParameterAsync();
+        await base.OnAwakeAsync();
         if (GetComponent<Animation>() != null && anima == null)
         {
             anima = GetComponent<Animation>();
@@ -85,9 +85,9 @@ public abstract class MiUIBase : MiObjPoolPublicParameter, IUIDialog
         return main;
     }
 
-    public abstract void Prepare();
+    public abstract void OnInit();
 
-    public abstract void SetParameter(object[] value);
+    public abstract void OnSetInit(object[] value);
 
     public object Clone()
     {

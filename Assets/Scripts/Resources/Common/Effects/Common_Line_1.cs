@@ -19,11 +19,11 @@ public class Common_Line_1 : CommonEffectsBase
     [SerializeField, ReadOnly] Transform target;
     [SerializeField] AnimationCurve WidthCurve = new AnimationCurve();
     [SerializeField] Gradient colorCurve = new Gradient();
-    protected override void Initialization()
+    protected override void OnStart()
     {
         //line.widthCurve = WidthCurve;
         //line.colorGradient = colorCurve;
-        base.Initialization();
+        base.OnStart();
     }
     private void Update()
     {
@@ -37,12 +37,12 @@ public class Common_Line_1 : CommonEffectsBase
 
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         line.loop = loop;
     }
 
-    public override void SetParameter(params object[] value)
+    public override void OnSetInit(params object[] value)
     {
         this.target = value[0] as Transform;
         radius = (float)value[1];

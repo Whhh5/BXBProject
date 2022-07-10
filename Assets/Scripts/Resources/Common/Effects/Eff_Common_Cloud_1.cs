@@ -10,12 +10,12 @@ public class Eff_Common_Cloud_1 : CommonEffectsBase
         Play();
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
 
     }
 
-    public override void SetParameter(params object[] value)
+    public override void OnSetInit(params object[] value)
     {
         var mainMode = mainParticle.main;
         mainMode.startLifetime = (float)value[1];

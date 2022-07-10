@@ -14,7 +14,7 @@ public class Eff_Common_Aureole_1 : CommonEffectsBase
         }
     }
 
-    public override void SetParameter(params object[] objs)
+    public override void OnSetInit(params object[] objs)
     {
         transform.SetPositionAndRotation((Vector3)objs[0], (Quaternion)objs[1]);
     }
@@ -25,7 +25,7 @@ public class Eff_Common_Aureole_1 : CommonEffectsBase
         Play();
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         gameObject.SetActive(false);
     }

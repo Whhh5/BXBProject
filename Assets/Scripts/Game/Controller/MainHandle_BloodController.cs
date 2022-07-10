@@ -26,9 +26,9 @@ public class MainHandle_BloodController : MiBaseMonoBeHaviourClass
     [SerializeField] GameObject enemyDieSignIcon;
 
     Tween DG_showEnemyBlood;
-    protected override void Initialization()
+    protected override void OnStart()
     {
-        base.Initialization();
+        base.OnStart();
         DG_showEnemyBlood = DOTween.To(() => enemyGroup.alpha, value => { enemyGroup.alpha = value; }, 1, enemyBloodTime.x).OnComplete(() =>
         {
             DG_showEnemyBlood = DOTween.To(() => 2, value => { }, 1, enemyBloodTime.y).OnComplete(() =>

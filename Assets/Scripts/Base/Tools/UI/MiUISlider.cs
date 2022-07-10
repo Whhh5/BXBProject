@@ -16,9 +16,9 @@ public class MiUISlider : BXB.Core.MiBaseMonoBeHaviourClass
     [SerializeField, Range(0,10)] float moveTime;
     [SerializeField, Range(0, 1)] float testSc;
 
-    protected override void Initialization()
+    protected override void OnStart()
     {
-        base.Initialization();
+        base.OnStart();
         //SetValue(0);
     }
     private void Update()

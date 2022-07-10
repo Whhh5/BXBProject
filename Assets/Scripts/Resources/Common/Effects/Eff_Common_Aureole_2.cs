@@ -22,12 +22,12 @@ public class Eff_Common_Aureole_2 : CommonEffectsBase
             Destroy();
         }
     }
-    public override void Prepare()
+    public override void OnInit()
     {
         isDestroy = false;
     }
 
-    public override void SetParameter(params object[] objs)
+    public override void OnSetInit(params object[] objs)
     {
 
     }

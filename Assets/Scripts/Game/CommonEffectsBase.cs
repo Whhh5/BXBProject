@@ -6,9 +6,9 @@ public abstract class CommonEffectsBase : MiObjPoolPublicParameter, IEffects
     [SerializeField] protected GameObject main;
     [SerializeField] protected ParticleSystem mainParticle;
     [SerializeField, ReadOnly] protected ParticleSystem.MainModule mainMode;
-    protected override void InitalizationInteriorParameter()
+    protected override void OnAwake()
     {
-        base.InitalizationInteriorParameter();
+        base.OnAwake();
         mainMode = mainParticle.main;
     }
     public void Pause()
@@ -31,7 +31,7 @@ public abstract class CommonEffectsBase : MiObjPoolPublicParameter, IEffects
     /// 0.StartDelay   1.StartLifetime
     /// </summary>
     /// <param name="objs"></param>
-    public abstract void SetParameter(params object[] objs);
+    public abstract void OnSetInit(params object[] objs);
 
     public void Continue()
     {
@@ -40,7 +40,7 @@ public abstract class CommonEffectsBase : MiObjPoolPublicParameter, IEffects
 
     public abstract void Active(params object[] objs);
 
-    public abstract void Prepare();
+    public abstract void OnInit();
 
 
     public object Clone()

@@ -6,9 +6,9 @@ using TMPro;
 public class MiUIText : MiBaseMonoBeHaviourClass
 {
     [SerializeField] TextMeshProUGUI textPro = null;
-    protected override async Task InitalizationInteriorParameterAsync()
+    protected override async Task OnAwakeAsync()
     {
-        await base.InitalizationInteriorParameterAsync();
+        await base.OnAwakeAsync();
 
         textPro = GetComponent<TextMeshProUGUI>();
         if (textPro == null)

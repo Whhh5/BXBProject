@@ -92,12 +92,12 @@ public class GridLayoutGroup : MiUIDialog
         data = new Dictionary<ushort, List<RectTransform>>();
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
         throw new System.NotImplementedException();
     }

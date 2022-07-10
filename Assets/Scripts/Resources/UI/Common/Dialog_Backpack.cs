@@ -99,10 +99,10 @@ public class Dialog_Backpack : MiUIDialog
                 if (aricle != null)
                 {
                     var articleId = await aricle.GetItemID();
-                    var data = DataManager.Master.GetTableData<LocalizeArticleData>(articleId);
+                    //var data = DataManager.Master.GetTableData<LocalizeArticleData>(articleId);
                     var path = "Prefab/UI/Common";
-                    articleHintDialog = await TableManager.Instance.tableData.ShowUIDialog<LocalizeArticleData, MiUIDialog>(
-                        path, 10104010002, CanvasLayer.System, data);
+                    //articleHintDialog = await TableManager.Instance.tableData.ShowUIDialog<LocalizeArticleData, MiUIDialog>(
+                    //    path, 10104010002, CanvasLayer.System, data);
                 }
             });
             cs.click.AddOnPointerExitClick(async () =>
@@ -157,12 +157,12 @@ public class Dialog_Backpack : MiUIDialog
             Func<Task<ulong>> f_count = async () => item.value;
             Func<Task<bool>> f_isRaycast = async () => false;
             Func<Task<ulong>> f_itemId = async () => item.key;
-            var cc = await TableManager.Instance.tableData.GetUIElement<LocalizeUIDialogData, UIElementPoolBase>(path, 10104020004, articleParent, Vector3.zero, f_sprite, f_count, f_isRaycast, f_itemId);
+///*            var cc = await TableManager.Instance.tableData.GetUIElement<LocalizeUIDialogData, UIElementPoolBase>(path, 10104020004, articleParent, Vector3.zero, f_sprite, */f_count, f_isRaycast, f_itemId);
 
-            RectTransform rectt = cc.GetComponent<RectTransform>();
+            //RectTransform rectt = cc.GetComponent<RectTransform>();
             foreach (var parameter in latticList)
             {
-                if (await parameter.Put(rectt))
+                //if (await parameter.Put(rectt))
                     break;
             }
 
@@ -190,12 +190,12 @@ public class Dialog_Backpack : MiUIDialog
         }
     }
 
-    public override void Prepare()
+    public override void OnInit()
     {
 
     }
 
-    public override void SetParameter(object[] value)
+    public override void OnSetInit(object[] value)
     {
 
     }
